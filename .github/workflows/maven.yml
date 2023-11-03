@@ -29,6 +29,25 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
+      
+    - name: Create Release
+      id: create_release
+      uses: action/create-release@v1
+      with:
+       tag_name: ${{ github.run_id }}
+       release_name: ${{ github.run_id }}
+       draft: false
+       prerelease: false 
+       
+    - name: Upload Release 
+      id: Upload release
+      uses: action/upload-release-asset@v1
+      with:
+        upload_url: $ {{ steps.create_release.outputs.upload_url }}
+        asset_path: ./artifact.zip
+        asset_name: artifact.zip
+        assest_content_type: application/zip
+  
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     #- name: Update dependency graph
