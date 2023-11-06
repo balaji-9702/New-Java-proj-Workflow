@@ -69,7 +69,7 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       with:
         upload_url: "$ {{ steps.create_release.outputs.upload_url }}"
-        asset_path: New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.zip
+        asset_path: New-Java-proj-Workflow/onlinebookstore-J2EE/target/artifact.zip
         asset_name: artifact.zip
         assest_content_type: "application/zip"
   
