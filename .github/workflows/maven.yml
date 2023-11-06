@@ -41,11 +41,11 @@ jobs:
 
     - uses: vimtor/action-zip@v1.1
       with:
-          files:  ./New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+          files:  /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
           dest:   artifact.zip
     - name: Ensure Presence of zip file
       run:  |
-        bash cd New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
+        bash cd /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
         bash ls -lrt
      
     - name: Create Release
