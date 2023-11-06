@@ -40,7 +40,7 @@ jobs:
       with:
         #args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
         files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
-        dest:   artifact.zip
+        dest:   New-Java-proj-Workflow/onlinebookstore-J2EE/target/artifact.zip
 
     - name: Ensure Presence of zip file
       run:  |
