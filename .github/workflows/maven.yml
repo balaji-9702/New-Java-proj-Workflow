@@ -53,7 +53,7 @@ jobs:
         upload_url: $ {{ steps.create_release.outputs.upload_url }}
         asset_path: ./artifact.zip
         asset_name: artifact.zip
-        assest_content_type: application/zip
+       # assest_content_type: application/zip
   
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
