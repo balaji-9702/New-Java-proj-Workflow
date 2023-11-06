@@ -38,7 +38,6 @@ jobs:
     - name: Make dir
       run: |
        mkdir New-Java-proj-Workflow/my-artifact
-       cd  New-Java-proj-Workflow/my-artifact
        ls -lrt
       # bash ls -ltr  
       
