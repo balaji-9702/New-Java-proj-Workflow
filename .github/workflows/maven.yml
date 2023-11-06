@@ -54,6 +54,7 @@ jobs:
     - name: Ensure Presence of zip file
       run:  |
          cd ./
+         cd New-Java-proj-Workflow/onlinebookstore-J2EE/
          ls -lrt   
 
    # - uses: vimtor/action-zip@v1.1
