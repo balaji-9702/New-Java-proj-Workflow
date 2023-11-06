@@ -41,7 +41,7 @@ jobs:
 
     - uses: vimtor/action-zip@v1.1
       with:
-          files:  New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+          files:  ./New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
           dest:   artifact.zip
     - name: Ensure Presence of zip file
       run:  |
