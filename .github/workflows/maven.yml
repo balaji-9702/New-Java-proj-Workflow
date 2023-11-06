@@ -35,7 +35,7 @@ jobs:
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       # bash ls -ltr
 
-    - name: Build with Maven
+    - name: Make dir
       run: |
        mkdir New-Java-proj-Workflow/my-artifact
       # bash ls -ltr  
@@ -49,9 +49,8 @@ jobs:
 
     - name: Ensure Presence of zip file
       run:  |
-         chmod 775 New-Java-proj-Workflow/onlinebookstore-J2EE/target/
          cd New-Java-proj-Workflow/onlinebookstore-J2EE/target/
-         cd New-Java-proj-Workflow/onlinebookstore-J2EE
+         cd New-Java-proj-Workflow/my-artifact/
          ls -lrt   
 
    # - uses: vimtor/action-zip@v1.1
