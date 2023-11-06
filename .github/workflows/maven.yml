@@ -32,7 +32,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-       mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
+       mvn -B package --file New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       # bash ls -ltr
       
    # - name: Zip output
