@@ -34,13 +34,18 @@ jobs:
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       # bash ls -ltr
+
+    - name: Build with Maven
+      run: |
+       mkdir New-Java-proj-Workflow/my-artifact
+      # bash ls -ltr  
       
     - name: Zip output
       uses: vimtor/action-zip@v1.1
       with:
         #args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
         files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
-        dest:   New-Java-proj-Workflow/onlinebookstore-J2EE/artifact.zip
+        dest:   New-Java-proj-Workflow/my-artifact/artifact.zip
 
     - name: Ensure Presence of zip file
       run:  |
@@ -76,7 +81,7 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       with:
         upload_url: "$ {{ steps.create_release.outputs.upload_url }}"
-        asset_path: New-Java-proj-Workflow/onlinebookstore-J2EE/
+        asset_path: New-Java-proj-Workflow/my-artifact/
         asset_name: artifact.zip
         asset_content_type: application/zip
   
