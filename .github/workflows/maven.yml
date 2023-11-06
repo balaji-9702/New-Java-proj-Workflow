@@ -76,7 +76,14 @@ jobs:
        release_name: "${{ github.run_id }}"
        draft: false
        prerelease: false
-       
+
+    - name: Debug Info
+      run: | 
+          echo "Upload URL: ${{ steps.create_release.outputs.upload_url }}"
+          ls -al New-Java-proj-Workflow/onlinebookstore-J2EE/  # Ensure the file is in the correct location
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+          
     - name: Upload Release 
       uses: actions/upload-release-asset@v1
       env:
