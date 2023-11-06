@@ -46,7 +46,7 @@ jobs:
       run:  |
          chmod 775 New-Java-proj-Workflow/onlinebookstore-J2EE/target/
          cd New-Java-proj-Workflow/onlinebookstore-J2EE/target/
-         cd New-Java-proj-Workflow/onlinebookstore-J2EE/
+         cd New-Java-proj-Workflow/onlinebookstore-J2EE
          ls -lrt   
 
    # - uses: vimtor/action-zip@v1.1
