@@ -52,7 +52,7 @@ jobs:
     - name: Download the artifact
       uses: actions/download-artifact@v1
       with:
-        name: my-artifact
+        name: artifact
         path: ./  
 
     - name: Ensure Presence of zip file
