@@ -51,6 +51,7 @@ jobs:
 
     - name: Ensure Presence of zip file
       run:  |
+         sudo chmod 775 ./
          cd ./
          ls -lrt   
 
