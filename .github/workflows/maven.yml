@@ -42,24 +42,14 @@ jobs:
        ls -lrt
       # bash ls -ltr  
       
-  #  - name: Zip output
-  #    uses: vimtor/action-zip@v1.1
-  #    with:
-  #      #args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
-  #      files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
-  #      dest:  ./artifact.zip
-
-    - name: Upload the artifact
-      uses: actions/upload-artifact@v1
+    - name: Zip output
+      uses: vimtor/action-zip@v1.1
       with:
-        name: artifact
-        path: ./artifact.zip 
+        #args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+        files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
+        dest:  artifact.zip
 
-    - name: Download the artifact
-      uses: actions/download-artifact@v1
-      with:
-        name: artifact
-        path: ./artifact.zip 
+  
 
     - name: Ensure Presence of zip file
       run:  |
@@ -92,7 +82,7 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       with:
         upload_url: "$ {{ steps.create_release.outputs.upload_url }}"
-        asset_path: ./
+        asset_path: artifact.zip
         asset_name: artifact.zip
         asset_content_type: application/zip
   
