@@ -44,16 +44,16 @@ jobs:
        draft: false
        prerelease: false
        
-   # - name: Upload Release 
-   #   id: Upload_release
-   #   uses: action/upload-release-asset@v1
-   #   env:
-   #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-   #   with:
-   #     upload_url: $ {{ steps.create_release.outputs.upload_url }}
-   #     asset_path: ./artifact.zip
-   #     asset_name: artifact.zip
-   #     assest_content_type: application/zip
+    - name: Upload Release 
+      id: Upload_release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: $ {{ steps.create_release.outputs.upload_url }}
+        asset_path: ./artifact.zip
+        asset_name: artifact.zip
+        assest_content_type: application/zip
   
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
