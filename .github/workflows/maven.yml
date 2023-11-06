@@ -34,10 +34,15 @@ jobs:
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       
-    - name: Zip output
-      uses: montudor/action-zip@v1
+   # - name: Zip output
+   #   uses: montudor/action-zip@v1
+   #   with:
+   #     args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  
+
+    - uses: vimtor/action-zip@v1.1
       with:
-        args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war   
+          files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+          dest: artifact.zip
       
     - name: Create Release
       id: create_release
