@@ -44,10 +44,9 @@ jobs:
           files:  New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
           dest:   artifact.zip
     - name: Ensure Presence of zip file
-      with:
-       script: |
-        cd New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
-        ls -lrt
+      run:  |
+        bash cd New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
+        bash ls -lrt
      
     - name: Create Release
       id: create_release
