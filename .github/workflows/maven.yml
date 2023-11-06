@@ -49,12 +49,6 @@ jobs:
         files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
         dest:   ./artifact.zip
 
-    - name: Download the artifact
-      uses: actions/download-artifact@v1
-      with:
-        name: artifact
-        path: ./  
-
     - name: Ensure Presence of zip file
       run:  |
          cd ./
