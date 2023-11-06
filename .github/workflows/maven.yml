@@ -33,8 +33,13 @@ jobs:
     - name: Build with Maven
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
-       Compress-Archive -Path New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  -DestinationPath New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
-       
+      
+    - name: Install zip
+      uses: montudor/action-zip@v1
+      
+    - name: Zip output
+      with:
+        args: zip -qq -r New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  artifact.zip   
       
     - name: Create Release
       id: create_release
