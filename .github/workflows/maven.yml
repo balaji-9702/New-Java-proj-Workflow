@@ -39,7 +39,7 @@ jobs:
       uses: vimtor/action-zip@v1.1
       with:
         #args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
-        files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+        files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
         dest:   artifact.zip
 
    # - uses: vimtor/action-zip@v1.1
