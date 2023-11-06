@@ -41,8 +41,8 @@ jobs:
 
     - uses: vimtor/action-zip@v1.1
       with:
-          files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
-          dest: artifact.zip
+          files:  New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+          dest:   artifact.zip
       
     - name: Create Release
       id: create_release
