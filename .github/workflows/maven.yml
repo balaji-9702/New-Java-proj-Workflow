@@ -33,6 +33,8 @@ jobs:
     - name: Create Release
       id: create_release
       uses: action/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.COMMIT_KEY }}
       with:
        tag_name: ${{ github.run_id }}
        release_name: ${{ github.run_id }}
@@ -42,6 +44,8 @@ jobs:
     - name: Upload Release 
       id: Upload_release
       uses: action/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.COMMIT_KEY }}
       with:
         upload_url: $ {{ steps.create_release.outputs.upload_url }}
         asset_path: ./artifact.zip
