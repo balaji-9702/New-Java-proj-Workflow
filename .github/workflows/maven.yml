@@ -33,20 +33,21 @@ jobs:
     - name: Build with Maven
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
+       bash ls -ltr
       
    # - name: Zip output
    #   uses: montudor/action-zip@v1
    #   with:
    #     args: zip -qq -r artifact.zip   -d New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  
 
-    - uses: vimtor/action-zip@v1.1
-      with:
-          files:  /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
-          dest:   artifact.zip
-    - name: Ensure Presence of zip file
-      run:  |
-        bash cd /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
-        bash ls -lrt
+   # - uses: vimtor/action-zip@v1.1
+   #   with:
+   #       files:  /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
+   #       dest:   artifact.zip
+   # - name: Ensure Presence of zip file
+   #   run:  |
+   #     bash cd /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target
+   #     bash ls -lrt
      
     - name: Create Release
       id: create_release
