@@ -42,6 +42,11 @@ jobs:
         files:  New-Java-proj-Workflow/onlinebookstore-J2EE/target/onlinebookstore-0.0.1-SNAPSHOT.war 
         dest:   artifact.zip
 
+    - name: Ensure Presence of zip file
+      run:  |
+         cd New-Java-proj-Workflow/onlinebookstore-J2EE/target/
+         ls -lrt   
+
    # - uses: vimtor/action-zip@v1.1
    #   with:
    #       files:  /home/runner/work/New-Java-proj-Workflow/New-Java-proj-Workflow/New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war 
