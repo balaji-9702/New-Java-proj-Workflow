@@ -52,14 +52,14 @@ jobs:
     - name: Upload the artifact
       uses: actions/upload-artifact@v1
       with:
-        name: my-artifact
+        name: artifact
         path: ./artifact.zip 
 
     - name: Download the artifact
       uses: actions/download-artifact@v1
       with:
-        name: my-artifact
-        path: ./    
+        name: artifact
+        path: ./artifact.zip 
 
     - name: Ensure Presence of zip file
       run:  |
