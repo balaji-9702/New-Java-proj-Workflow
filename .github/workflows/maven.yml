@@ -34,10 +34,8 @@ jobs:
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       
-    - name: Install zip
-      uses: montudor/action-zip@v1
-      
     - name: Zip output
+      uses: montudor/action-zip@v1
       with:
         args: zip -qq -r New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  artifact.zip   
       
