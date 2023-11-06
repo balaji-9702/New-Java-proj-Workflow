@@ -33,7 +33,8 @@ jobs:
     - name: Build with Maven
       run: |
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
-       Compress-Archive -update -DestinationPath New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
+       Compress-Archive -Path New-Java-proj-Workflow/onlinebookstore-J2EE/target/*.war  -DestinationPath New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
+       
       
     - name: Create Release
       id: create_release
