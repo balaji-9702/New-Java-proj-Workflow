@@ -37,6 +37,13 @@ jobs:
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       # bash ls -ltr
 
+    - name: Download and Set Up SonarScanner
+      run: |
+          curl -sLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+          unzip sonar-scanner-cli.zip
+          export PATH="$PATH:$(pwd)/sonar-scanner-cli-4.6.2.2472-linux/bin"
+      shell: bash
+
     - name: SonarQube Scan
       run: |
           mvn --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml sonar:sonar \
