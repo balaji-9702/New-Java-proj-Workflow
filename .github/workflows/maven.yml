@@ -38,17 +38,17 @@ jobs:
       # bash ls -ltr
 
 
-  #  - name: Start SonarQube Container
-  #    run: |
-  #        docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
-  #        sleep 30
-
-    - name: Download and Set Up SonarScanner
+    - name: Start SonarQube Container
       run: |
-          curl -sLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
-          unzip sonar-scanner-cli.zip
-          export PATH="$PATH:$(pwd)/sonar-scanner-cli-4.6.2.2472-linux/bin"
-      shell: bash
+          docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+          sleep 30
+
+ #   - name: Download and Set Up SonarScanner
+ #     run: |
+ #         curl -sLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
+ #         unzip sonar-scanner-cli.zip
+ #         export PATH="$PATH:$(pwd)/sonar-scanner-cli-4.6.2.2472-linux/bin"
+ #     shell: bash
 
     - name: SonarQube Scan
       run: |
@@ -57,7 +57,7 @@ jobs:
             -Dsonar.projectKey=New-Java-Proj \
             -Dsonar.login=admin \
             -Dsonar.password=admin1 \
-            -Dsonar.host.url=http://27.5.245.39:9000
+            -Dsonar.host.url=http://localhost:9000
       env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
 
