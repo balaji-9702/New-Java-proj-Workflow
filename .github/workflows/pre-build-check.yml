@@ -24,4 +24,4 @@ jobs:
         
     - name: Build with Maven
       run: |
-       mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2E/pom.xml
+       mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
