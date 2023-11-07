@@ -13,7 +13,6 @@ on:
     workflows: ["Java CI with Maven"]
     types:
       - success
-
 jobs:
   build:
 
