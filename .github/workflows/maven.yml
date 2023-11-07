@@ -44,12 +44,23 @@ jobs:
           sleep 30
           
 
- #   - name: Download and Set Up SonarScanner
- #     run: |
- #         curl -sLo sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
- #         unzip sonar-scanner-cli.zip
- #         export PATH="$PATH:$(pwd)/sonar-scanner-cli-4.6.2.2472-linux/bin"
- #     shell: bash
+    - name: Download and Set Up SonarScanner
+      run: |
+          echo 'export SONAR_VERSION="4.6.2.2472-linux"' >> $GITHUB_ENV
+          echo 'export SONAR_CLI="sonar-scanner-cli-${SONAR_VERSION}"' >> $GITHUB_ENV
+          echo 'export SONAR_FOLDER="sonar-scanner-${SONAR_VERSION}"' >> $GITHUB_ENV
+          source $GITHUB_ENV
+          curl "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/${SONAR_CLI}.zip" -o "${SONAR_CLI}.zip"
+          unzip "${SONAR_CLI}.zip"
+          pwd
+          chmod u+x "${SONAR_FOLDER}/bin/sonar-scanner"
+          echo "PATH=\"${PATH}:${PWD}/${SONAR_FOLDER}/bin\"" >> $GITHUB_ENV
+          source $GITHUB_ENV
+     #     rm -rf sonar-scanner-4.6.2.2472-linux/conf/sonar-scanner.properties
+     #     cp $GITHUB_WORKSPACE/sonar-scanner.properties sonar-scanner-4.6.2.2472-linux/conf/sonar-scanner.properties
+     #     echo 'Running scanner for the first time'
+          
+   
 
     - name: SonarQube Scan
       run: |
