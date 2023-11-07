@@ -41,7 +41,7 @@ jobs:
       run: |
           mvn --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml sonar:sonar \
             -Dsonar.projectKey=New-Java-Proj \
-            -Dsonar.host.url=http://27.5.245.39:9000 \
+            -Dsonar.host.url=http://localhost:9000 \
             -Dsonar.login=admin \
             -Dsonar.password=admin1
       env:
