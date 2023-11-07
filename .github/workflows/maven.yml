@@ -53,6 +53,7 @@ jobs:
     - name: SonarQube Scan
       run: |
           mvn --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml sonar:sonar \
+          sonar-scanner \
             -Dsonar.projectKey=New-Java-Proj \
             -Dsonar.host.url=http://localhost:9000 \
             -Dsonar.login=admin \
