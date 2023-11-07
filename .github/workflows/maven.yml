@@ -37,20 +37,18 @@ jobs:
        mvn -B package --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml
       # bash ls -ltr
 
-    - name: Install SonarScanner
+    - name: SonarQube Scan
       run: |
-        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-8.9.1-linux.zip
-        unzip sonar-scanner-cli-<version>-linux.zip
-        export PATH=$PWD/sonar-scanner-<version>-linux/bin:$PATH
-
-    - name: Run SonarQube Analysis
-      run: |
-        sonar-scanner -Dsonar.projectKey=your_project_key \
-          -Dsonar.sources=. \
-          -Dsonar.host.url=https://localhost:9000 \
-          -Dsonar.login=$SONARQUBE_ADMIN_TOKEN
+          mvn --file New-Java-proj-Workflow/onlinebookstore-J2EE/pom.xml sonar:sonar \
+            -Dsonar.projectKey=New-Java-Proj \
+            -Dsonar.host.url=http://27.5.245.39:9000 \
+            -Dsonar.login=admin \
+            -Dsonar.password=admin1
       env:
-        SONARQUBE_ADMIN_TOKEN: ${{ secrets.SONARQUBE_ADMIN_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+
+
+  
 
     - name: Make dir
       run: |
