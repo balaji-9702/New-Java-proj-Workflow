@@ -39,7 +39,7 @@ jobs:
 
     - name: Install SonarScanner
       run: |
-        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-<version>-linux.zip
+        wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-8.9.1-linux.zip
         unzip sonar-scanner-cli-<version>-linux.zip
         export PATH=$PWD/sonar-scanner-<version>-linux/bin:$PATH
 
@@ -47,7 +47,7 @@ jobs:
       run: |
         sonar-scanner -Dsonar.projectKey=your_project_key \
           -Dsonar.sources=. \
-          -Dsonar.host.url=https://your-sonarqube-server-url \
+          -Dsonar.host.url=https://localhost:9000 \
           -Dsonar.login=$SONARQUBE_ADMIN_TOKEN
       env:
         SONARQUBE_ADMIN_TOKEN: ${{ secrets.SONARQUBE_ADMIN_TOKEN }}
