@@ -38,10 +38,10 @@ jobs:
       # bash ls -ltr
 
 
-    - name: Start SonarQube Container
-      run: |
-          docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
-          sleep 30
+  #  - name: Start SonarQube Container
+  #    run: |
+  #        docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+  #        sleep 30
 
     - name: Download and Set Up SonarScanner
       run: |
@@ -57,7 +57,7 @@ jobs:
             -Dsonar.projectKey=New-Java-Proj \
             -Dsonar.login=admin \
             -Dsonar.password=admin1 \
-            -Dsonar.host.url=http://localhost:9000
+            -Dsonar.host.url=http://27.5.245.39:9000
       env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
 
