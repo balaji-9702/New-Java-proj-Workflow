@@ -42,6 +42,8 @@ jobs:
       run: |
           docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
           sleep 30
+          ports:
+             - 9000:9000
 
  #   - name: Download and Set Up SonarScanner
  #     run: |
