@@ -95,6 +95,11 @@ jobs:
         asset_path: New-Java-proj-Workflow/onlinebookstore-J2EE/artifact.zip
         asset_name: artifact.zip
         asset_content_type: application/zip
+  
+    - name: Start SonarQube Container
+      run: |
+          docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+          sleep 30
 
  
   
